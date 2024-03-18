@@ -1,0 +1,12 @@
+ul {
+  list-style: circle;
+}
+
+.list-item {
+  margin-bottom: 32px;
+  font-size: 24px;
+}
+
+.delete-item {
+  margin-left: 32px;
+}
