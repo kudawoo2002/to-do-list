@@ -5,6 +5,11 @@ const initialstodos = ["wash the plate", "learn coding", "clean the kitchen"];
 
 function App() {
   const [toDos, setToDos] = useState(initialstodos);
+  // const [isClick, setIsClick] = useState(false);
+
+  // function handleClick() {
+  //   setIsClick(true);
+  // }
 
   function deleteToDo(id) {
     setToDos((toDos) => toDos.filter((todo, index) => todo[index] !== id));
@@ -28,7 +33,7 @@ export default App;
 
 function Button({ children, onClick }) {
   return (
-    <button className="delete-item" onClick={onClick}>
+    <button className="delete-item del-item" onClick={onClick}>
       {children}
     </button>
   );
@@ -44,7 +49,9 @@ function Todo({ toDos, onDelTodo }) {
         {toDos.map((item, index) => (
           <li className="list-item" key={index}>
             {[...item]}
-            <Button onClick={() => onDelTodo(item[index])}>Delete</Button>
+            <Button onClick={() => onDelTodo(item[index])} className="del-item">
+              Delete
+            </Button>
           </li>
         ))}
       </ul>

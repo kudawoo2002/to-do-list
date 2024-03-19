@@ -10,3 +10,19 @@ ul {
 .delete-item {
   margin-left: 32px;
 }
+
+.del-item {
+  border: none;
+  background-color: red;
+  font-size: 16px;
+  color: #fff;
+  padding: 8px 16px;
+  width: 85px;
+  height: 32px;
+  border-radius: 12px;
+}
+
+.App {
+  margin: 20% auto;
+  margin-left: 40%;
+}
