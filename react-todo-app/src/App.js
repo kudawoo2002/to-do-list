@@ -6,6 +6,10 @@ const initialstodos = ["wash the plate", "learn coding", "clean the kitchen"];
 function App() {
   const [toDos, setToDos] = useState(initialstodos);
 
+  function deleteToDo(id) {
+    setToDos((toDos) => toDos.filter((todo, index) => todo[index] !== id));
+  }
+
   function addNewToDo(toDo) {
     setToDos((toDos) => [...toDos, toDo]);
   }
@@ -13,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header"></header>
-      <Todo toDos={toDos} />
+      <Todo toDos={toDos} onDelTodo={deleteToDo} />
       <button>Add ToDos</button>
       <AddTodo onAddToDo={addNewToDo} />
     </div>
@@ -30,15 +34,17 @@ function Button({ children, onClick }) {
   );
 }
 
-function Todo({ toDos }) {
+function Todo({ toDos, onDelTodo }) {
+  console.log(toDos);
+  console.log(toDos.length);
   return (
     <div>
       <h1>To-Do List</h1>
       <ul>
-        {toDos.map((item) => (
-          <li className="list-item">
+        {toDos.map((item, index) => (
+          <li className="list-item" key={index}>
             {[...item]}
-            <Button>Delete</Button>
+            <Button onClick={() => onDelTodo(item[index])}>Delete</Button>
           </li>
         ))}
       </ul>
